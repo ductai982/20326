@@ -1,7 +1,13 @@
-FROM openjdk:17-jdk-slim
+package com.example.demo;
 
-WORKDIR /app
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-COPY target/*.jar app.jar
+@RestController
+public class HelloController {
 
-ENTRYPOINT ["java","-jar","app.jar"]
+    @GetMapping("/")
+    public String hello() {
+        return "Hello CI/CD Docker!";
+    }
+}
